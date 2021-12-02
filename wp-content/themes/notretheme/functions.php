@@ -89,3 +89,15 @@ function my_related_event_block($ids= []) {
     ];
     return new WP_Query($args);
     }
+
+    // Mis en avant du livre
+    acf_register_block_type([
+        'name' => 'related-event',
+        'title' => 'Livres mis en avant',
+        'render_template' => get_stylesheet_directory() . '/parts/block/livres.php',
+        //'enqueue_style' => get_stylesheet_directory_uri() . '/assets/css/blocks/related-event.css',
+        'supports' => [
+            'jsx' => true,
+        ]
+    ]);
+    
