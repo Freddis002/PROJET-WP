@@ -1,6 +1,9 @@
 <?php
 
-
+function mon_theme_assets() {
+    wp_enqueue_style('twentytwentyone/app_css', get_template_directory_uri() . '/style.css');
+    wp_enqueue_style('notretheme/app.css', get_stylesheet_directory_uri() . '/assets/css/app.css', [], '1.0');
+}
 
 add_filter('the_content','formater_texte' , 90);
 
@@ -101,3 +104,7 @@ function my_related_event_block($ids= []) {
         ]
     ]);
     
+    // Pour le menu
+add_action('init', function() {
+    register_nav_menu('livre-menu', 'Menu livre');
+});

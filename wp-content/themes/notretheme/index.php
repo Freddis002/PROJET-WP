@@ -1,19 +1,23 @@
-
 <?php
 get_header();
 ?>
 
-<?php
-if (have_posts()) {
-    while (have_posts()) {
-        the_post();
-        the_title();
-        the_content();
-        /*the_excerpt();*/
-    }
-}
+<div id="primary" class="content-area">
+	<main id="main" class="site-main">
 
-?>
+		<?php
+		if (have_posts()) {
+
+			// Load posts loop.
+			while (have_posts()) {
+				the_post();
+				the_content();
+			}
+		}
+		?>
+
+	</main><!-- .site-main -->
+</div><!-- .content-area -->
+
 <?php
 get_footer();
-?>
