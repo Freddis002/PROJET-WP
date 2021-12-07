@@ -1,7 +1,7 @@
 <?php
 
-function mon_theme_assets() {
-    wp_enqueue_style('twentytwentyone/app_css', get_template_directory_uri() . '/style.css');
+function notretheme_assets() {
+    wp_enqueue_style('twentytwenty/app_css', get_template_directory_uri() . '/style.css');
     wp_enqueue_style('notretheme/app.css', get_stylesheet_directory_uri() . '/assets/css/app.css', [], '1.0');
 }
 
@@ -70,7 +70,7 @@ function wpdocs_codex_book_init() {
 
 add_action( 'init', 'wpdocs_codex_book_init' );
 
-function my_related_event_block($ids= []) {
+function my_related_livres_block($ids= []) {
     
     $id = $id === 0 ? get_the_ID() : $id;
     $terms = get_the_terms(get_the_ID(), 'livre-category');
