@@ -31,4 +31,4 @@ $livre_posts = my_related_livres_block($livres, $order);
 		
 	<?php endif; ?>
 </div>
-;
+
