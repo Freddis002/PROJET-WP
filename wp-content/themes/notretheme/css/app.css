@@ -1,3 +1,9 @@
-body {
-	background-color: yellow !important;
+
+/* contact  Pour le moment le css est dans apparence css perso*/
+a[href^="mailto"]::before {
+    content: "📧 ";
+}
+
+a[href^="tel"]::before {
+    content: "📞 ";
 }

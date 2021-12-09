@@ -1,9 +1,5 @@
 
-<?php  
-		wp_nav_menu([
-			'menu' => 'livre-menu',
-		]); 
-		?>
+
 <?php
 get_header();
 ?>
@@ -19,6 +15,7 @@ get_header();
                 <?php get_template_part('parts/content', get_post_type()); ?>
 				<?php endwhile; ?>
 				</ul>
+				<button>En savoir plus</button>
 				
 		<?php endif; ?>
 		

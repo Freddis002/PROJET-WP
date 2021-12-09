@@ -63,32 +63,25 @@ function wpdocs_codex_book_init() {
 
 add_action( 'init', 'wpdocs_codex_book_init' );
 
-function my_related_livres_block($ids= []) {
-    
-    $id = $id === 0 ? get_the_ID() : $id;
-    $terms = get_the_terms(get_the_ID(), 'livre-category');
-    
-    if(!$terms) {
-        return false;
-    }
-    
-    $term = $terms[0]->slug;
+
     
     
-    $args = [
-        'post_type' => 'livre',
-        'posts_per_page' =>1,
-        'order_by' => 'post_date',
-        'order' => 'DESC',
-        'post__in' =>$ids,
-        
-    ];
-    return new WP_Query($args);
-    }
+    function my_related_livres_block($ids = [], $order = 'DESC')
+{
+	$args = [
+		'post_type' => 'Livres', // slug du type de contenu personnalisé
+		//'posts_per_page' => 2,
+		'orderby' => 'post_date',
+		'order' => $order,
+		'post__in' => $ids,
+	];
+
+	return new WP_Query($args); // appel de la requète en base de données
+}
 
     // Mis en avant du livre
     acf_register_block_type([
-        'name' => 'related-event',
+        'name' => 'related-livres',
         'title' => 'Livres mis en avant',
         'render_template' => get_stylesheet_directory() . '/parts/block/livres.php',
         //'enqueue_style' => get_stylesheet_directory_uri() . '/assets/css/blocks/related-event.css',
