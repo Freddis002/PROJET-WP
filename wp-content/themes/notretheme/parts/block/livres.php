@@ -1,6 +1,4 @@
-<?php
-get_header();
-?>
+
 <?php
 $block_id = $block['id'];
 $livres = get_field('livres', $block_id);
@@ -30,8 +28,7 @@ $livre_posts = my_related_livres_block($livres, $order);
 			<?php endwhile; ?>
 		</ul>
 	<?php else : ?>
-		<div>Aucun évènement</div>
+		
 	<?php endif; ?>
 </div>
-<?php
-get_footer();
+;
