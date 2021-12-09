@@ -13,14 +13,7 @@ function formater_texte($content) {
 }
 
 // Pour le css
-add_action('wp_enqueue_scripts', 'notre_theme_assets');	
-
-function notre_theme_assets() {
-    
-    wp_enqueue_style('notre_theme/app.css', get_stylesheet_directory_uri() . '/assets/css/app.css', [], '1.0');
-
-}
-
+add_action('wp_enqueue_scripts', 'notretheme_assets');	
 
 // Pour le menu
 add_action('init', function() {
