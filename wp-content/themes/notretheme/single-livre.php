@@ -4,10 +4,11 @@
 		?>
 		<?php if ($related_posts && $related_posts->have_posts()) : ?>
 			<h2>Livre</h2>
+			<p></p>
 			<ul>
 				
 				<?php while ($related_posts->have_posts()) : $related_posts->the_post(); ?>
-					<?php get_template_part('parts/content', 'livres'); ?>
+					<?php get_template_part('livres'); ?>
 				<?php endwhile; ?>
 			</ul>
 

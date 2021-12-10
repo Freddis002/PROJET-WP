@@ -1,4 +1,5 @@
 <?php
+
 if( function_exists('acf_add_local_field_group') ):
 
 	acf_add_local_field_group(array(
@@ -9,7 +10,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'key' => 'field_61a0f0e26c762',
 				'label' => 'Référence du livre',
 				'name' => 'reference_du_livre',
-				'type' => 'taxonomy',
+				'type' => 'text',
 				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
@@ -18,20 +19,17 @@ if( function_exists('acf_add_local_field_group') ):
 					'class' => '',
 					'id' => '',
 				),
-				'taxonomy' => 'category',
-				'field_type' => 'checkbox',
-				'add_term' => 0,
-				'save_terms' => 0,
-				'load_terms' => 0,
-				'return_format' => 'id',
-				'multiple' => 0,
-				'allow_null' => 0,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
 			),
 			array(
 				'key' => 'field_61a0f0ff2d707',
 				'label' => 'Mis en avant',
 				'name' => 'mis_en_avant',
-				'type' => 'taxonomy',
+				'type' => 'true_false',
 				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
@@ -40,20 +38,17 @@ if( function_exists('acf_add_local_field_group') ):
 					'class' => '',
 					'id' => '',
 				),
-				'taxonomy' => 'category',
-				'field_type' => 'checkbox',
-				'add_term' => 1,
-				'save_terms' => 0,
-				'load_terms' => 0,
-				'return_format' => 'id',
-				'multiple' => 0,
-				'allow_null' => 0,
+				'message' => '',
+				'default_value' => 0,
+				'ui' => 1,
+				'ui_on_text' => '',
+				'ui_off_text' => '',
 			),
 			array(
 				'key' => 'field_61ab95ac0cb0a',
 				'label' => 'Titre du livre',
 				'name' => 'titre_du_livre',
-				'type' => 'page_link',
+				'type' => 'text',
 				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
@@ -62,11 +57,11 @@ if( function_exists('acf_add_local_field_group') ):
 					'class' => '',
 					'id' => '',
 				),
-				'post_type' => '',
-				'taxonomy' => '',
-				'allow_null' => 0,
-				'allow_archives' => 1,
-				'multiple' => 0,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
 			),
 			array(
 				'key' => 'field_61b24ae9c7fa9',
@@ -96,9 +91,9 @@ if( function_exists('acf_add_local_field_group') ):
 		'location' => array(
 			array(
 				array(
-					'param' => 'post_format',
+					'param' => 'post_type',
 					'operator' => '==',
-					'value' => 'image',
+					'value' => 'livres',
 				),
 			),
 		),
@@ -114,4 +109,3 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 	
 	endif;		
-?>
