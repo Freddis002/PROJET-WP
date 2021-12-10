@@ -1,22 +1,24 @@
 <?php
 get_header();
+
 ?>
 
-<div id="primary" class="content-area">
-	<main id="main" class="site-main">
-
+<?php if (function_exists('livre_related_posts')) : ?>
 		<?php
-		if (have_posts()) {
-
-			// Load posts loop.
-			while (have_posts()) {
-				the_post();
-				the_content();
-			}
-		}
+		$related_posts = livre_related_posts();
 		?>
+		<?php if ($related_posts && $related_posts->have_posts()) : ?>
+			<h2>Livre</h2>
+			<p></p>
+			<ul>
+				
+				<?php while ($related_posts->have_posts()) : $related_posts->the_post(); ?>
+					<?php get_template_part('livres'); ?>
+				<?php endwhile; ?>
+			</ul>
 
-	</main><!-- .site-main -->
+		<?php endif; ?>
+	<?php endif; ?>
 </div><!-- .content-area -->
 
 <?php
