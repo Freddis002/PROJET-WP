@@ -1,20 +1,48 @@
-<?php if (function_exists('livre_related_posts')) : ?>
+<?php
+
+
+get_header();
+?>
+
+<div id="primary" class="content-area">
+	<main id="main" class="site-main">
+
 		<?php
-		$related_posts = livre_related_posts();
+		if (have_posts()) {
+
+			// Load posts loop.
+			while (have_posts()) {
+				the_post();
 		?>
-		<?php if ($related_posts && $related_posts->have_posts()) : ?>
-			<h2>Livre</h2>
-			<p></p>
-			<ul>
-				
-				<?php while ($related_posts->have_posts()) : $related_posts->the_post(); ?>
-					<?php get_template_part('livres'); ?>
-				<?php endwhile; ?>
-			</ul>
+				<div class="livre">
+					<h1><?php the_title(); ?></h1>
+					<?php if ($livres = get_field('livres')) : ?>
+						
+					<?php endif; ?>
+					<?php the_content(); ?>
 
-		<?php endif; ?>
-	<?php endif; ?>
-</div><!-- .content-area -->
+					<div class="other-livre">
+						<?php
+						if (have_rows('livres')) {
+							while (have_rows('livres')) {
+								the_row();
+								echo get_sub_field('livres');
+							}
+						}
+						?>
+					</div>
+				</div>
+		<?php
+			}
+		}
+		?>
 
+	</main><!-- .site-main -->
+
+	
+
+
+
+	
 <?php
 get_footer();

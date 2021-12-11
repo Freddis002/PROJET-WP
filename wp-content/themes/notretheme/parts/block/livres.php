@@ -19,11 +19,11 @@ $livre_posts = my_related_livres_block($livres, $order);
 					<?php if ($show_thumbnail): ?>
 						<?php the_post_thumbnail(); ?>
 					<?php endif; ?>
-					<h2>
+					<h4>
 						<a href="<?php the_permalink(); ?>">
 							<?php the_title(); ?>
 						</a>
-					</h2>
+					</h4>
 				</li>
 			<?php endwhile; ?>
 		</ul>

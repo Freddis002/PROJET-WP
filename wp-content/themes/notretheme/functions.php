@@ -15,10 +15,6 @@ function formater_texte($content) {
 // Pour le css
 add_action('wp_enqueue_scripts', 'notretheme_assets');	
 
-// Pour le menu
-add_action('init', function() {
-    register_nav_menu('menu', 'Menu');
-});
 
 
 // Pour mettre image en avant
@@ -64,7 +60,7 @@ function wpdocs_codex_book_init() {
 add_action( 'init', 'wpdocs_codex_book_init' );
 
 
-    
+add_image_size('livre-image', 100, 100, true);
     
     function my_related_livres_block($ids = [], $order = 'DESC')
 {
