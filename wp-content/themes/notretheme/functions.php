@@ -5,12 +5,6 @@ function notretheme_assets() {
     wp_enqueue_style('notretheme/app.css', get_stylesheet_directory_uri() . '/assets/css/app.css', [], '1.0');
 }
 
-add_filter('the_content','formater_texte' , 90);
-
-function formater_texte($content) {
-    $content = str_replace('WordPress','<strong>WordPress</strong>', $content);
-    return $content;
-}
 
 // Pour le css
 add_action('wp_enqueue_scripts', 'notretheme_assets');	
@@ -80,11 +74,39 @@ add_image_size('livre-image', 100, 100, true);
 	return new WP_Query($args); // appel de la requète en base de données
 }
 
+function my_related_contact_block($ids = [])
+{
+	$args = [
+		'post_type' => 'contact', // slug du type de contenu personnalisé
+		'post__in' => $ids,
+        'meta_query' => array(
+            array(
+                'key' => 'adresse',
+                
+            )
+        )
+	];
+
+	return new WP_Query($args); // appel de la requète en base de données
+}
+
+
     // Mis en avant du livre
     acf_register_block_type([
         'name' => 'related-livres',
         'title' => 'Livres mis en avant',
         'render_template' => get_stylesheet_directory() . '/parts/block/livres.php',
+        //'enqueue_style' => get_stylesheet_directory_uri() . '/assets/css/blocks/related-event.css',
+        'supports' => [
+            'jsx' => true,
+        ]
+    ]);
+
+     // Contact
+     acf_register_block_type([
+        'name' => 'related-contact',
+        'title' => 'Contact',
+        'render_template' => get_stylesheet_directory() . '/parts/block/contact.php',
         //'enqueue_style' => get_stylesheet_directory_uri() . '/assets/css/blocks/related-event.css',
         'supports' => [
             'jsx' => true,

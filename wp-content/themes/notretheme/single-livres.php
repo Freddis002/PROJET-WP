@@ -15,12 +15,16 @@ get_header();
 				the_post();
 		?>
 				<div class="livre">
-					<h1><?php the_title(); ?></h1>
+					<h3><?php the_title(); ?></h3>
+					<div class="img">
+					<?php  the_post_thumbnail('post-thumbnails'); ?>
+					</div>
+					<?php the_field('reference_du_livre'); ?>
 					<?php if ($livres = get_field('livres')) : ?>
 						
 					<?php endif; ?>
 					<?php the_content(); ?>
-					<?php the_field('reference_du_livre'); ?>
+					
 
 					<div class="other-livre">
 						<?php
