@@ -62,14 +62,19 @@ add_action( 'init', 'wpdocs_codex_book_init' );
 
 add_image_size('livre-image', 100, 100, true);
     
-    function my_related_livres_block($ids = [], $order = 'DESC')
+    function my_related_livres_block($ids = [])
 {
 	$args = [
 		'post_type' => 'Livres', // slug du type de contenu personnalisé
-		//'posts_per_page' => 2,
+		'posts_per_page' =>4 ,
 		'orderby' => 'post_date',
-		'order' => $order,
 		'post__in' => $ids,
+        'meta_query' => array(
+            array(
+                'key' => 'mis_en_avant',
+                'value' => '1',
+            )
+        )
 	];
 
 	return new WP_Query($args); // appel de la requète en base de données

@@ -20,6 +20,7 @@ get_header();
 						
 					<?php endif; ?>
 					<?php the_content(); ?>
+					<?php the_field('reference_du_livre'); ?>
 
 					<div class="other-livre">
 						<?php
