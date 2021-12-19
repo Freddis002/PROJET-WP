@@ -15,15 +15,30 @@ get_header();
 				the_post();
 		?>
 				<div class="livre">
+					
 					<h3><?php the_title(); ?></h3>
+					</div>
 					<div class="img">
 					<?php  the_post_thumbnail('post-thumbnails'); ?>
-					</div>
-					<?php the_field('reference_du_livre'); ?>
+			</div>
+					
+					<p class="ref"><?php the_field('reference_du_livre'); ?></p>
+					
+					<?php the_excerpt(); ?>
+					
 					<?php if ($livres = get_field('livres')) : ?>
+
+						
 						
 					<?php endif; ?>
-					<?php the_content(); ?>
+					<details>
+					<summary>Lire la suite</summary>
+					
+					<p class="block"><?php the_content(); ?></p>
+					</details>
+					
+
+					
 					
 
 					<div class="other-livre">
@@ -41,6 +56,7 @@ get_header();
 			}
 		}
 		?>
+		
 
 	</main><!-- .site-main -->
 

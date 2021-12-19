@@ -18,6 +18,12 @@ add_action('after_setup_theme', function() {
 }
 );
 
+function wpc_excerpt_pages() {
+    add_meta_box('postexcerpt', __('Extrait'), 'post_excerpt_meta_box', 'page', 'normal', 'core');
+    }
+    add_action( 'admin_menu', 'wpc_excerpt_pages' );
+    
+
 // Pour le livre
 
 /**
@@ -54,6 +60,7 @@ function wpdocs_codex_book_init() {
 add_action( 'init', 'wpdocs_codex_book_init' );
 
 
+
 add_image_size('livre-image', 100, 100, true);
     
     function my_related_livres_block($ids = [])
@@ -77,12 +84,18 @@ add_image_size('livre-image', 100, 100, true);
 function my_related_contact_block($ids = [])
 {
 	$args = [
-		'post_type' => 'contact', // slug du type de contenu personnalisé
+		'post_type' => 'Contact', // slug du type de contenu personnalisé
 		'post__in' => $ids,
         'meta_query' => array(
             array(
                 'key' => 'adresse',
                 
+                'value' =>'1',
+                
+            ),
+            array (
+                'key' => 'numero_de_telephone',
+                'value' => '1',
             )
         )
 	];
